@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import Login from "./login";
+import './App.css'
 import Signup from "./signup";
 
 function App(){
