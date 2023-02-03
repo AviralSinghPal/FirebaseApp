@@ -19,9 +19,7 @@ const handleSubmit=(e)=>{
     console.log(email);
     signInWithEmailAndPassword(auth, email,password)
     .then(async (res) => {    
-     console.log(res);        
-     const user = res.user;
-     
+     console.log(res);         
      navigate("/");
     })
     .catch((err) => {
