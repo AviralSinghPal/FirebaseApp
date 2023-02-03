@@ -1,4 +1,4 @@
-# My Firebase App
+# My Firebase App - Deployed link: https://firebaseappforbarspan.netlify.app/
 
 This is a simple app built using Firebase, Node, and React JS. It has the following features:
 
