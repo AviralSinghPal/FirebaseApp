@@ -1,26 +1,41 @@
-import React from "react"
-import {Link} from "react-router-dom"
+import React, { useState } from "react";
+import { auth } from "./firebase";
+import { Link } from 'react-router-dom';
+import UserProfile from "./userprofile";
+// import UserProfile from "./userprofile";
 
+function Home() {
+  const [user, setUser] = useState(null);
 
-function Home(props) {
-    return (
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    }
+  });
+
+  return (
+    <div>
+      {user ? (
         <div>
-      <div>
-        <h1>
+          <h1>Welcome, {user.email}</h1>
+          <div><UserProfile/></div>
+          <button onClick={() => auth.signOut()}>Sign Out</button>
+        </div>
+      ) : (
+        <div>
+          <h1>Please sign in</h1>
+          <button >
           <Link to="/login">Login</Link>
-        </h1>
-        <br />
-        <h1>
-          <Link to="/signup">Signup</Link>
-        </h1>
-      </div>
-
-      <br />
-      <br />
-      <br />
-
-      <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+          </button>
+          <button >
+          <Link to="/signup">SignUp</Link>
+          </button>
+        </div>
+      )}
     </div>
-    )
+  );
 }
+
 export default Home;
