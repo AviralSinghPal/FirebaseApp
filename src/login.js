@@ -1,10 +1,10 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
 import React,{useState} from "react";
 import { Link ,useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "./firebase";
 
 const Login = (props) => {
-    const navigate = useNavigate();
+const navigate = useNavigate();
 const [email,setEmail] = useState('');
 const [password,setPassword] = useState('');
 const [errorMsg, setErrorMsg] = useState("");
@@ -19,8 +19,10 @@ const handleSubmit=(e)=>{
     console.log(email);
     signInWithEmailAndPassword(auth, email,password)
     .then(async (res) => {    
-      
-      navigate("/");
+     console.log(res);        
+     const user = res.user;
+     
+     navigate("/");
     })
     .catch((err) => {
       
@@ -36,7 +38,7 @@ const handleSubmit=(e)=>{
     <br/>
     <div>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="you@email.com"/><br/>        
+        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="your@email.com"/><br/>        
         <label>Password:</label>
         <input type = "password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="********"/><br/>
     </div>
@@ -44,7 +46,7 @@ const handleSubmit=(e)=>{
     <b>{errorMsg}</b>
     <br/>
     <button type="submit" >Login</button>
-    <div>Don't have an account<Link to="/signup"><button >SignUp</button></Link></div>
+    <div>Don't have an account?<Link to="/signup"><button >SignUp</button></Link></div>
     </form>
     </>
     );

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import { auth } from "./firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import {useNavigate} from 'react-dom/client'
 
 
@@ -11,7 +11,7 @@ const Signup = (props) =>{
     const [password,setPassword] = useState('');
     const [errorMsg,setErrorMsg] = useState('');
     const [submitButtonDisabled, setSubmitButtonDisabled]= useState(false);
-
+    const navigate= useNavigate();
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -27,6 +27,7 @@ const Signup = (props) =>{
             await updateProfile(user,{
                 displayName: name,
             });
+            navigate("/")
         }).catch((err)=>{
             setSubmitButtonDisabled(false);
             setErrorMsg(err.message);

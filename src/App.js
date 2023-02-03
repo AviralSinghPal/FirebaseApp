@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        
         setUserName(user.displayName);
       } else setUserName("");
     });
