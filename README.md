@@ -32,17 +32,4 @@ This is a simple app built using Firebase, Node, and React JS. It has the follow
 
 ---
 
-## User Details Page
-
-### Displayed details
-- Name
-- Email
-- Profile picture (optional)
-
-### Links
-- Edit profile page
-- Logout
-
----
-
 Note: This is just a sample template. You can customize it as per your requirements.
