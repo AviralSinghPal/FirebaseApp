@@ -1,6 +1,6 @@
 # My Firebase App - Deployed link: https://firebaseappforbarspan.netlify.app/
 
-This is a simple app built using Firebase, Node, and React JS. It has the following features:
+This is a simple app built using Firebase, Node, and React JS. It has the following features:this app provides basic authentication function using firebase 
 
 ## Signup Page
 
@@ -13,9 +13,7 @@ This is a simple app built using Firebase, Node, and React JS. It has the follow
 
 ### Links
 - Login page
-- Forgot password page
 
----
 
 ## Login Page
 
